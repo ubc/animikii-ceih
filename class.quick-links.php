@@ -66,12 +66,13 @@ Class Quick_Links {
    * @return void
    */
   static function shell() {
-    $html = '<section class="c-quick-links s-dark-background js-quick-links is-initial '.UBC_Collab_Spotlight::get_slider_class().' ">';
-    $html .= '<nav class="c-quick-links__inner">';
-    $html .= self::slider_items();
-    $html .= '</nav>';
-    $html .= '</section>';
-    return $html;
+
+      $html = '<section class="c-quick-links s-dark-background js-quick-links is-initial '.UBC_Collab_Spotlight::get_slider_class().' ">';
+      $html .= '<nav class="c-quick-links__inner">';
+      $html .= self::slider_items();
+      $html .= '</nav>';
+      $html .= '</section>';
+      return $html;
   }
 
   /**
@@ -94,7 +95,7 @@ Class Quick_Links {
 
         $description = rwmb_meta( 'akii_frontpage_description', null, $post_id );
 
-        $html .= '<li class="c-quick-links__item" style="background-image: url( ' . self::get_quicklink_image_src( $post_id, array( 'width'=>1000, 'height'=>900 ) ) . ')">';
+        $html .= '<li class="c-quick-links__item" style="background-image: url( ' . self::get_quicklink_image_src( $post_id, array( 'width'=>1000, 'height'=>900) ) . ')">';
           $html .= '<div class="c-quick-links__item__background"></div>';
 
           $html .= '<h3 class="c-quick-links__item__header">';
@@ -111,6 +112,24 @@ Class Quick_Links {
         $count++;
       }
     }
+
+    // while ( $spotlight_query->have_posts() ): $spotlight_query->the_post();
+
+    //   $html .= '<li class="c-quick-links__item" style="background-image: url( ' . self::get_quicklink_image( array( 'width'=>1600, 'height'=>900) ) . ')">';
+    //     $html .= '<div class="c-quick-links__item__background"></div>';
+
+    //     $html .= '<h3 class="c-quick-links__item__header">';
+    //       $html .= '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
+    //     $html .= '</h3>';
+    //     $html .= '<div class="c-quick-links__item__body">';
+    //       $html .= '<p>' . get_the_excerpt() . '</p>';
+    //       $html .= '<p>';
+    //         $html .= '<a class="c-button" href="' . get_permalink() . '">Learn more</a>';
+    //       $html .= '</p>';
+    //     $html .= '</div>';
+    //   $html .= '</li>';
+
+    // endwhile;
 
     $html .= '</ul>';
 

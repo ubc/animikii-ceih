@@ -1,4 +1,6 @@
 .section-container {
+  // margin-left: -15px;
+  // margin-right: -15px;
   position: relative;
 }
 
@@ -8,43 +10,7 @@
 
 .grid-sizer,
 .sub-grid-item {
-  width: 50%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-@media screen and (max-width: 979px) {
-  .grid-sizer,
-  .sub-grid-item {
-    width: 47.5%;
-    position: relative;
-  }
-  .gutter-sizer {
-    width: 2.5%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .grid-sizer,
-  .sub-grid-item {
-    width: 100%;
-    position: relative;
-  }
-  .gutter-sizer {
-    width: 0%;
-  }
-}
-
-@media screen and (min-width: 979px) {
-  .grid-sizer,
-  .sub-grid-item {
-    width: 47.5%;
-    position: relative;
-  }
-  .gutter-sizer {
-    width: 2.5%;
-  }
+  width: 48.2%;
 }
 
 @media screen and (min-width: 1400px) {
@@ -86,21 +52,11 @@
   }
 }
 
-@media screen and (max-width: 979px) {
-  .section {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-.section-sub-grid .sub-grid-item {
+.section > div > .sub-grid-item {
   margin-bottom: 15px;
-  overflow: hidden;
 }
 
-.section-sub-grid .sub-grid-item:nth-child(2n+1) {
+.section > div > .sub-grid-item:nth-child(2n+1) {
   min-height: 200px;
   margin-left: 0;
 }
@@ -124,17 +80,11 @@
 
 .section-sub {
   position: relative;
-  height: 200px;
-  overflow: hidden;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  min-height: 200px;
 
   img {
     width: 100%;
-    height: 200px;
-    max-width: none;
+    height: auto;
   }
 
   ul {
@@ -156,36 +106,9 @@
   }
 }
 
-.section-sub-grid-wrap {
-  margin-left: -15px;
-  margin-right: -15px;
-  padding-left: 15px;
-  padding-right: 15px;
-
-  @media screen and (max-width: 979px) {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  > div {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-
-.section-sub-grid {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 .section-sub-overlay {
   position: absolute;
-  bottom: 20px;
+  top: 150px;
   left: 0;
   right: 0;
   font-size: 26px;
@@ -206,11 +129,6 @@
 
   .sub-link {
     float: left;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    line-height: 1.2;
   }
 
   .sub-toggle {

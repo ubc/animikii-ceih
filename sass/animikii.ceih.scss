@@ -1,19 +1,5 @@
 @charset "utf-8";
 
-#ubc7-unit-name,
-body {
-  font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif
-}
-
-a {
-  background-color: transparent
-}
-
-a:active,
-a:hover {
-  outline: 0
-}
-
 #body-container:not(.container) {
   position: relative;
   padding-left: 50px;
@@ -57,6 +43,25 @@ a:hover {
   }
 }
 
+@media screen and (max-width: 1500px) {
+  #body-container.show-menu {
+    .container, #ubc7-unit-menu .container {
+      width: 890px;
+    }
+  }
+}
+
+@media screen and (max-width: 1260px) {
+  #body-container.show-menu {
+    .container, #ubc7-unit-menu .container {
+      width: auto;
+    }
+  }
+  #body-container.show-menu {
+    padding-left: 335px;
+  }
+}
+
 .sr-only {
   display: none;
 }
@@ -75,4 +80,3 @@ $main-menu-link-background-color-hover: #2c57a4;
 @import 'section';
 @import 'menu';
 @import 'quick-links';
-@import 'stuff';

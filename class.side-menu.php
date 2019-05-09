@@ -66,7 +66,7 @@ Class Side_Menu {
           <?php if ( is_active_sidebar( 'side_menu_bottom' ) ) : ?>
             <div class="menu-bottom">
               <div class="menu-bottom-widget widget_search">
-                <form method="get" class="search-form" id="search-formhybrid-search" action="/">
+                <form method="get" class="search-form" id="search-formhybrid-search" action="http://localhost:8080/">
                   <div>
                     <input class="search-text search-query" placeholder="Search Learning Circle" type="text" name="s" id="search-texthybrid-search" value=""
                       onfocus="if(this.value==this.defaultValue)this.value='';"
