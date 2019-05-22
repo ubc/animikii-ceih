@@ -66,13 +66,12 @@ Class Quick_Links {
    * @return void
    */
   static function shell() {
-
-      $html = '<section class="c-quick-links s-dark-background js-quick-links is-initial '.UBC_Collab_Spotlight::get_slider_class().' ">';
-      $html .= '<nav class="c-quick-links__inner">';
-      $html .= self::slider_items();
-      $html .= '</nav>';
-      $html .= '</section>';
-      return $html;
+    $html = '<section class="c-quick-links s-dark-background js-quick-links is-initial '.UBC_Collab_Spotlight::get_slider_class().' ">';
+    $html .= '<nav class="c-quick-links__inner">';
+    $html .= self::slider_items();
+    $html .= '</nav>';
+    $html .= '</section>';
+    return $html;
   }
 
   /**

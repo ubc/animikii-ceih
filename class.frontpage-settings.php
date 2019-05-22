@@ -72,11 +72,11 @@ Class Animikii_Frontpage_Settings {
 
     $text_settings = get_post_meta( $post_id, '_animikii_ceih_frontpage_settings', true );
 
-       // Use nonce for verification
-       echo '<input type="hidden" name="animikii_ceih_frontpage_settings_noncename" id="animikii_ceih_frontpage_settings_noncename" value="' . wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+      // Use nonce for verification
+      echo '<input type="hidden" name="animikii_ceih_frontpage_settings_noncename" id="animikii_ceih_frontpage_settings_noncename" value="' . wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
 
-    echo __( 'This is the text that will show up on the home page if this page is in the menu', 'animikii-ceih-frontpage-settings' );
-    // The actual fields for data entry
+      echo __( 'This is the text that will show up on the home page if this page is in the menu', 'animikii-ceih-frontpage-settings' );
+      // The actual fields for data entry
     ?>
     <textarea class="animikii-ceih-frontpage-settings" name="animikii_ceih_frontpage_settings" id="animikii-ceih-frontpage-settings"><?php echo esc_textarea( $text_settings ); ?></textarea>
     <?php
@@ -96,12 +96,37 @@ Class Animikii_Frontpage_Settings {
     if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
       return $post_id;
 
+    /* Verify the nonce before proceeding. */
     if (isset($_POST['animikii_ceih_frontpage_settings_noncename']) && !wp_verify_nonce( $_POST['animikii_ceih_frontpage_settings_noncename'], plugin_basename(__FILE__) ))
-        return $post_id;
+      return $post_id;
 
-    // only update the data if it is a string
-    if(isset($_POST['animikii_ceih_frontpage_settings']) && is_string( $_POST['animikii_ceih_frontpage_settings'] ) )
-      add_post_meta( $post_id, '_animikii_ceih_frontpage_settings', $_POST['animikii_ceih_frontpage_settings'], true) or update_post_meta( $post_id, '_animikii_ceih_frontpage_settings', $_POST['animikii_ceih_frontpage_settings'] );
+    /* Get the post type object. */
+    $post_type = get_post_type_object( $post->post_type );
+
+    /* Check if the current user has permission to edit the post. */
+    if ( !current_user_can( $post_type->cap->edit_post, $post_id ) )
+      return $post_id;
+
+    /* Get the posted data and sanitize it for use as an HTML class. */
+    $new_meta_value = ( isset( $_POST['animikii_ceih_frontpage_settings'] ) && is_string( $_POST['animikii_ceih_frontpage_settings'] ) ? sanitize_html_class( $_POST['animikii_ceih_frontpage_settings'] ) : ’ );
+
+    /* Get the meta key. */
+    $meta_key = 'animikii_ceih_frontpage_settings';
+
+    /* Get the meta value of the custom field key. */
+    $meta_value = get_post_meta( $post_id, $meta_key, true );
+
+    /* If a new meta value was added and there was no previous value, add it. */
+    if ( $new_meta_value && ’ == $meta_value )
+      add_post_meta( $post_id, $meta_key, $new_meta_value, true );
+
+    /* If the new meta value does not match the old value, update it. */
+    elseif ( $new_meta_value && $new_meta_value != $meta_value )
+      update_post_meta( $post_id, $meta_key, $new_meta_value );
+
+    /* If there is no new meta value but an old value exists, delete it. */
+    elseif ( ’ == $new_meta_value && $meta_value )
+      delete_post_meta( $post_id, $meta_key, $meta_value );
 
     return $post_id;
 
