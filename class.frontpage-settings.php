@@ -108,7 +108,7 @@ Class Animikii_Frontpage_Settings {
       return $post_id;
 
     /* Get the posted data and sanitize it for use as an HTML class. */
-    $new_meta_value = ( isset( $_POST['animikii_ceih_frontpage_settings'] ) && is_string( $_POST['animikii_ceih_frontpage_settings'] ) ? sanitize_html_class( $_POST['animikii_ceih_frontpage_settings'] ) : ’ );
+    $new_meta_value = ( isset( $_POST['animikii_ceih_frontpage_settings'] ) && is_string( $_POST['animikii_ceih_frontpage_settings'] ) ? sanitize_html_class( $_POST['animikii_ceih_frontpage_settings'] ) : '' );
 
     /* Get the meta key. */
     $meta_key = 'animikii_ceih_frontpage_settings';
