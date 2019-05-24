@@ -162,6 +162,7 @@ Class Animikii_Frontpage {
           $html .= '</div>';
 
           if($item['has_children'])
+            $html .= '<div class="section-sub-grid-wrap">';
             $html .= '<div class="row-fluid expand section-sub-grid">';
             $html .= '<div class="gutter-sizer"></div>';
             $html .= '<div class="grid-sizer"></div>';
@@ -197,6 +198,7 @@ Class Animikii_Frontpage {
         // end
         if($current_lvl === 0) {
           if($item['has_children'])
+              $html .= '</div>';
             $html .= '</div>';
           $html .= '</section>'; // section end
         } else if($current_lvl === 1) {
