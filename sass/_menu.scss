@@ -238,7 +238,7 @@
 }
 
 .admin-bar .menu-container {
-  padding-top: 30px
+  padding-top: 46px
 }
 
 .social-icon {
@@ -342,6 +342,14 @@
     -webkit-animation: inM .8s forwards;
     animation: inM .8s forwards;
   }
+}
+
+.show-menu #main-menu-container {
+  left: 50px;
+}
+
+.admin-bar .menu-trigger {
+  top: 150px;
 }
 
 @media screen and (min-width: 1200px) {
