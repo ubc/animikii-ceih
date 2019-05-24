@@ -8,17 +8,42 @@
 
 .grid-sizer,
 .sub-grid-item {
-  width: 48.2%;
+  width: 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 979px) {
   .grid-sizer,
   .sub-grid-item {
-    width: 45%;
+    width: 47.5%;
     position: relative;
   }
   .gutter-sizer {
-    width: 3%;
+    width: 2.5%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .grid-sizer,
+  .sub-grid-item {
+    width: 100%;
+    position: relative;
+  }
+  .gutter-sizer {
+    width: 0%;
+  }
+}
+
+@media screen and (min-width: 979px) {
+  .grid-sizer,
+  .sub-grid-item {
+    width: 47.5%;
+    position: relative;
+  }
+  .gutter-sizer {
+    width: 2.5%;
   }
 }
 
@@ -70,12 +95,12 @@
   }
 }
 
-.section > div > .sub-grid-item {
+.section-sub-grid .sub-grid-item {
   margin-bottom: 15px;
   overflow: hidden;
 }
 
-.section > div > .sub-grid-item:nth-child(2n+1) {
+.section-sub-grid .sub-grid-item:nth-child(2n+1) {
   min-height: 200px;
   margin-left: 0;
 }
@@ -102,6 +127,10 @@
   height: 200px;
   overflow: hidden;
 
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
   img {
     width: 100%;
     height: 200px;
@@ -125,6 +154,33 @@
       }
     }
   }
+}
+
+.section-sub-grid-wrap {
+  margin-left: -15px;
+  margin-right: -15px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @media screen and (max-width: 979px) {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  > div {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+.section-sub-grid {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .section-sub-overlay {
@@ -151,14 +207,10 @@
   .sub-link {
     float: left;
     width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    line-height: 1.2;
   }
 
   .sub-toggle {
