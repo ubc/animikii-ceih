@@ -13,7 +13,9 @@
   // layout Masonry after each image loads
   $grid.imagesLoaded().progress( function() {
     $grid.masonry('layout');
-
   });
+
+  var observer = lozad(document.querySelectorAll('.section-header-image img, .section-sub imgs'));
+  observer.observe();
 
 }(jQuery));
