@@ -15,9 +15,11 @@ Class Animikii_Frontpage {
 
     wp_register_script( 'animikii-ceih-frontpage-masonry', 'https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js', array( 'jquery' ), '2.1', true );
     wp_register_script( 'animikii-ceih-frontpage-imagesloaded', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js', array( 'jquery' ), '2.1', true );
+    wp_register_script( 'animikii-ceih-frontpage-imagefill', plugins_url('/js/jquery-imagefill.js', __FILE__), array( 'jquery' ), '2.1', true );
     wp_register_script( 'animikii-ceih-frontpage-settings', plugins_url('/js/aki-frontpage.js', __FILE__), array( 'jquery' ), '2.1', true );
     wp_enqueue_script('animikii-ceih-frontpage-masonry');
     wp_enqueue_script('animikii-ceih-frontpage-imagesloaded');
+    wp_enqueue_script('animikii-ceih-frontpage-imagefill');
     wp_enqueue_script('animikii-ceih-frontpage-settings');
   }
 
@@ -174,16 +176,16 @@ Class Animikii_Frontpage {
               $html .= $item['title'];
             $html .= '</a>';
 
-            if($item['has_children']) {
-              $html .= '<a class="sub-toggle collapsed" data-toggle="collapse" href="#sub-section-' . $post_id . '">';
-                $html .= '<span class="icon icon-plus"></span>';
-              $html .= '</a>';
-            }
+            // if($item['has_children']) {
+            //   $html .= '<a class="sub-toggle collapsed" data-toggle="collapse" href="#sub-section-' . $post_id . '">';
+            //     $html .= '<span class="icon icon-plus"></span>';
+            //   $html .= '</a>';
+            // }
           $html .= '</div>';
-          $html .= '<div id="sub-section-' . $post_id . '" class="accordion-body sub-section collapse">';
-            $html .= '<ul>';
-        } else if($current_lvl === 2) {
-          $html .= '<li><a href="' . get_permalink() . '">' . $item['title'] . '</a></li>';
+          // $html .= '<div id="sub-section-' . $post_id . '" class="accordion-body sub-section collapse">';
+          //   $html .= '<ul>';
+        // } else if($current_lvl === 2) {
+        //   $html .= '<li><a href="' . get_permalink() . '">' . $item['title'] . '</a></li>';
         }
 
         if ($current_lvl > $prev_lvl) {
@@ -202,8 +204,8 @@ Class Animikii_Frontpage {
             $html .= '</div>';
           $html .= '</section>'; // section end
         } else if($current_lvl === 1) {
-                $html .= '</ul>';
-              $html .= '</div>';
+              //   $html .= '</ul>';
+              // $html .= '</div>';
             $html .= '</div>';
           $html .= '</div>';
         }

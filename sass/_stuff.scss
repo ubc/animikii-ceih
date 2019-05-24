@@ -114,37 +114,5 @@
   background-color: #3461ae
 }
 
-.full-width .full-width-container .expand.breadcrumb {
-  padding-left: 40px;
-  padding-right: 40px;
-}
 
-.page-title,
-.entry-title,
-.entry-content {
-  padding-left: 20px;
-  padding-right: 20px;
-}
 
-.post-header-image {
-  margin-left: -15px;
-  margin-right: -15px;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-#ubc7-footer {
-  * {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .container {
-    width: 100%;
-    >div {
-      padding: 25px 40px;
-    }
-  }
-}
