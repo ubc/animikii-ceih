@@ -13,13 +13,9 @@ Class Animikii_Frontpage {
     remove_action( 'template_redirect', array( 'UBC_Collab_Frontpage', 'start' ), 999 );
     add_action( 'template_redirect', array( __CLASS__, 'frontpage_start'), 999 );
 
-    wp_register_script( 'animikii-ceih-frontpage-masonry', 'https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js', array( 'jquery' ), '2.1', true );
-    wp_register_script( 'animikii-ceih-frontpage-imagesloaded', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js', array( 'jquery' ), '2.1', true );
-    wp_register_script( 'animikii-ceih-frontpage-imagefill', plugins_url('/js/jquery-imagefill.js', __FILE__), array( 'jquery' ), '2.1', true );
+    wp_register_script( 'animikii-ceih-frontpage-bundle', plugins_url('/js/bundle.js', __FILE__), array( 'jquery' ), '2.1', true );
     wp_register_script( 'animikii-ceih-frontpage-settings', plugins_url('/js/aki-frontpage.js', __FILE__), array( 'jquery' ), '2.1', true );
-    wp_enqueue_script('animikii-ceih-frontpage-masonry');
-    wp_enqueue_script('animikii-ceih-frontpage-imagesloaded');
-    wp_enqueue_script('animikii-ceih-frontpage-imagefill');
+    wp_enqueue_script('animikii-ceih-frontpage-bundle');
     wp_enqueue_script('animikii-ceih-frontpage-settings');
   }
 
