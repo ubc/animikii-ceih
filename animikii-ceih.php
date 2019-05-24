@@ -3,7 +3,7 @@
  * Plugin Name: Animikii - Centre for Excellence in Indigenous Health
  * Plugin URI: http://www.anmimikii.com
  * Description: Animikii Design implementaion for Centre for Excellence in Indigenous Health - CLF 7.0 as according to UBC CLF requirements. Once activated, options available in <a href="/wp-admin/themes.php?page=theme_options">Theme Options</a>
- * Version: 0.1
+ * Version: 0.2
  * Author: Dakota J Lightning (dakotalightning)
  * Author URI: http://www.anmimikii.com
  *
