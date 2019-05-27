@@ -107,7 +107,7 @@
       }
 
       &.active {
-        a {
+        > a {
           border-left: 10px solid #f9d803;
           padding-left: 40px;
           background-color: $main-menu-link-background-color-active;
