@@ -22,10 +22,12 @@
 
   $(".menu-item-has-children > a").on("click touchstart", function(n) {
     var isOpen = $(this).parent().hasClass("open");
-    n.preventDefault();
     if(isOpen) {
       $(this).parent().removeClass("open");
     } else {
+      n.preventDefault();
+      var text = $(this).text();
+      $(this).text('Continue to ' + text);
       $(this).parent().addClass("open");
     }
     setMenuHeight();
