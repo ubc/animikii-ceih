@@ -11,7 +11,13 @@
 
 Class Animikii_CEIH {
 
+  static $prefix;
+
   public static function init() {
+
+    // wp-hybrid-clf
+    self::$prefix = hybrid_get_prefix();
+
     require_once( plugin_dir_path( __FILE__ ) . 'lib/meta-box/meta-box.php');
 
     require_once( plugin_dir_path( __FILE__ ) . 'class.quick-links.php');
@@ -22,6 +28,31 @@ Class Animikii_CEIH {
     wp_enqueue_style('animikii-ceih-style');
 
     add_filter( 'rwmb_meta_boxes', array( __CLASS__, 'akii_frontpage_meta_box' ) );
+    add_filter( 'template_include', array( __CLASS__, 'new_default_template' ), 99 );
+
+    add_action( self::$prefix."_before_container", array(__CLASS__, 'feature_image') , 1 );
+  }
+
+  function feature_image() { ?>
+
+    <div class="post-header-image">
+
+      <?php the_post_thumbnail( array( 1200, 450 ) ); ?>
+
+    </div>
+
+    <?php
+  }
+
+  function new_default_template( $template ) {
+
+    $file = dirname(__FILE__) . '/default-template.php';
+
+    if ( file_exists( $file ) ) {
+      return $file;
+    }
+
+    return $template;
   }
 
   /**
