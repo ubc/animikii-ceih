@@ -7,8 +7,8 @@
     $window = $(window);
 
   var parents = $('.menu-container ul li.active')
-  .parentsUntil('#menu-top-nav', 'li.menu-item')
-  .addClass('open');
+    .parentsUntil('#menu-top-nav', 'li.menu-item')
+    .addClass('open');
 
   $('#main-side-menu-toggle, #main-menu-close').click(function (e) {
     e.preventDefault();
@@ -20,7 +20,7 @@
     }
   });
 
-  $(".menu-item-has-children > a").on("click touchstart", function(n) {
+  $(".menu-item-has-children > a").on("click", function(n) {
     var isOpen = $(this).parent().hasClass("open");
     if(isOpen) {
       $(this).parent().removeClass("open");
