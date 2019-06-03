@@ -27,7 +27,7 @@ get_header(); // Loads the header.php template.
 <section class="section section-registration">
   <div class="registration">
     <h1>Registration</h1>
-    <h3>To register for any of our online Learning Circle events, please visit our <a href="#">Learning Circle registration page.</a></h3>
+    <h3>To register for any of our online Learning Circle events, please visit our <a href="https://learningcircle.ubc.ca/">Learning Circle registration page.</a></h3>
   </div>
 </section>
 
