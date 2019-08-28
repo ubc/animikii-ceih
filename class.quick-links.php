@@ -94,7 +94,7 @@ Class Quick_Links {
 
         $description = rwmb_meta( 'akii_frontpage_description', null, $post_id );
 
-        $html .= '<li class="c-quick-links__item" style="background-image: url( ' . self::get_quicklink_image_src( $post_id, array( 'width'=>1000, 'height'=>900) ) . ')">';
+        $html .= '<li class="c-quick-links__item" style="background-image: url( ' . self::get_quicklink_image_src( $post_id, array( 'width'=>1000, 'height'=>900 ) ) . ')">';
           $html .= '<div class="c-quick-links__item__background"></div>';
 
           $html .= '<h3 class="c-quick-links__item__header">';
