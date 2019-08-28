@@ -112,24 +112,6 @@ Class Quick_Links {
       }
     }
 
-    // while ( $spotlight_query->have_posts() ): $spotlight_query->the_post();
-
-    //   $html .= '<li class="c-quick-links__item" style="background-image: url( ' . self::get_quicklink_image( array( 'width'=>1600, 'height'=>900) ) . ')">';
-    //     $html .= '<div class="c-quick-links__item__background"></div>';
-
-    //     $html .= '<h3 class="c-quick-links__item__header">';
-    //       $html .= '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
-    //     $html .= '</h3>';
-    //     $html .= '<div class="c-quick-links__item__body">';
-    //       $html .= '<p>' . get_the_excerpt() . '</p>';
-    //       $html .= '<p>';
-    //         $html .= '<a class="c-button" href="' . get_permalink() . '">Learn more</a>';
-    //       $html .= '</p>';
-    //     $html .= '</div>';
-    //   $html .= '</li>';
-
-    // endwhile;
-
     $html .= '</ul>';
 
     return $html;
