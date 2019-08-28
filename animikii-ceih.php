@@ -36,12 +36,24 @@ Class Animikii_CEIH {
   function feature_image() { ?>
 
     <div class="post-header-image">
-
-      <?php the_post_thumbnail( array( 1200, 450 ) ); ?>
-
+      <?php self::the_feature_image(); ?>
     </div>
 
     <?php
+  }
+
+  /**
+   * Display the custome featutre image.
+  **/
+  function the_feature_image() {
+    $args = array(
+      'width' => 1200,
+      'height' => 450,
+      'zc' => 1
+    );
+
+    $url = get_the_post_thumbnail_url( the_post(), array( 1200, 450 ) );
+    echo '<img src="' . wave_resize_image_url( $url, $args ) . '" alt="">';
   }
 
   function new_default_template( $template ) {
