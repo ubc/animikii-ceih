@@ -36,7 +36,7 @@ Class Animikii_CEIH {
   function feature_image() { ?>
 
     <div class="post-header-image">
-      <?php self::the_feature_image(); ?>
+      <?php the_post_thumbnail( array( 1200, 450 ) ); ?>
     </div>
 
     <?php
