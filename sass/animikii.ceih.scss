@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+#ubc7-unit-name,
+body {
+  font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif
+}
+
+a {
+  background-color: transparent
+}
+
+a:active,
+a:hover {
+  outline: 0
+}
+
+#body-container:not(.container) {
+  position: relative;
+  padding-left: 50px;
+}
+
+@media screen and (min-width: 1200px) {
+  #body-container:not(.container) {
+    padding-left: 60px;
+  }
+}
+
+#container {
+  padding-top: 0 !important
+}
+
+.container, #ubc7-unit-menu .container {
+  width: 890px;
+}
+
+@media screen and (min-width: 1200px) {
+  .container, #ubc7-unit-menu .container {
+    width: 1110px;
+  }
+}
+
+@media screen and (max-width: 979px) {
+  body {
+    padding: 0 20px;
+    padding-left: 0;
+  }
+  #body-container:not(.container) {
+    padding-left: 70px;
+  }
+}
+
+@media screen and (max-width: 979px) {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+  }
+}
+
+.sr-only {
+  display: none;
+}
+
+body #ubc7-unit {
+  background: #0c59b4;
+}
+
+$main-menu-background-color: #112747;
+
+$main-menu-link-color: #fff;
+$main-menu-link-background-color: #112747;
+$main-menu-link-background-color-active: #001d3d;
+$main-menu-link-background-color-hover: #2c57a4;
+
+@import 'section';
+@import 'menu';
+@import 'quick-links';
+@import 'stuff';
