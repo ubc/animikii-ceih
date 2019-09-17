@@ -35,25 +35,64 @@ Class Animikii_CEIH {
 
   function feature_image() { ?>
 
-    <div class="post-header-image">
-      <?php the_post_thumbnail( array( 1200, 450 ) ); ?>
-    </div>
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+        <?php self::display_the_feature_image(); ?>
+
+      <?php endwhile; ?>
+
+    <?php else: ?>
+
+      <!-- Apologies, but no results were found. -->
+
+    <?php endif; ?>
 
     <?php
   }
 
   /**
-   * Display the custome featutre image.
-  **/
-  function the_feature_image() {
+   * get_the_feature_image_url function.
+   *
+   *
+   * @access public
+   * @param mixed $post_id
+   * @return string
+   */
+  function get_the_feature_image_url($post_id = null) {
+    $args = array(
+      'width' => 1200,
+      'height' => 450,
+      'zc' => 1
+    );
+    $feature_image_url = get_the_post_thumbnail_url( $post_id, array( 1200, 450 ) );
+    if ( ! $feature_image_url ) {
+      return false;
+    }
+    return $feature_image_url;
+  }
+
+  /**
+   * display_the_feature_image function.
+   *
+   *
+   * @access public
+   * @return void
+   */
+  function display_the_feature_image() {
     $args = array(
       'width' => 1200,
       'height' => 450,
       'zc' => 1
     );
 
-    $url = get_the_post_thumbnail_url( the_post(), array( 1200, 450 ) );
-    echo '<img src="' . wave_resize_image_url( $url, $args ) . '" alt="">';
+    $feature_image_url = self::get_the_feature_image_url( get_the_ID() );
+    if ( ! $feature_image_url ) {
+      return false;
+    }
+
+    echo '<div class="post-header-image">';
+      echo '<img src="' . wave_resize_image_url( $feature_image_url, $args ) . '" alt="">';
+    echo '</div>';
   }
 
   function new_default_template( $template ) {
