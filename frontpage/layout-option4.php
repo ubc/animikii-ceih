@@ -98,5 +98,4 @@ get_header(); // Loads the header.php template.
 
   </div><!-- .content .hfeed -->
 
-<?php get_footer(); // Loads the footer.php template. ?>
-
+<?php get_footer(); // Loads the footer.php template.

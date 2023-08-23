@@ -143,7 +143,7 @@ Class Animikii_CEIH {
    * register the metaboxes for the front page content
    *
    * @access public
-   * @return void
+   * @return mixed
    */
   function akii_frontpage_meta_box( $meta_boxes ) {
     $prefix = 'akii_';

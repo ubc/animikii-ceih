@@ -9,7 +9,7 @@ Class Animikii_Frontpage {
    * @access public
    * @return void
    */
-  function init() {
+  public static function init() {
     remove_action( 'template_redirect', array( 'UBC_Collab_Frontpage', 'start' ), 999 );
     add_action( 'template_redirect', array( __CLASS__, 'frontpage_start'), 999 );
 
@@ -23,7 +23,7 @@ Class Animikii_Frontpage {
    * start function.
    * Set up in the theme redirect part
    * @access public
-   * @return bool
+   * @return
    */
   static function frontpage_start( $template ) {
 
@@ -73,7 +73,7 @@ Class Animikii_Frontpage {
    *
    * @access public
    * @param bool $echo (default: true)
-   * @return string,void
+   * @return mixed
    */
   static function show( $echo = true ) {
     $html = self::shell();
@@ -264,7 +264,7 @@ Class Animikii_Frontpage {
       $image = reset($images);
       $html .= '<img src="' . self::wave_resize_akii_frontpage_image($image['url'], $dimensions['width'], $dimensions['height']) . '" alt="">';
     } else {
-      $html .= '<img src="https://placehold.it/' . $dimensions['width'] . 'x' . $dimensions['height'] . '" alt="Image Placeholder">';
+      $html .= '<img src="https://dummyimage.com/' . $dimensions['width'] . 'x' . $dimensions['height'] . '" alt="Image Placeholder">';
     }
 
     return $html;

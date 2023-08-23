@@ -43,7 +43,7 @@ Class Quick_Links {
    * @access public
    * @param array $atts (default: array())
    * @param bool $echo (default: true)
-   * @return void
+   * @return mixed
    */
   static function show( $atts = array(), $echo = true ) {
     self::$add_script = true;
@@ -63,7 +63,7 @@ Class Quick_Links {
    * shell function.
    *
    * @access public
-   * @return void
+   * @return string
    */
   static function shell() {
     $html = '<section class="c-quick-links s-dark-background js-quick-links is-initial '.UBC_Collab_Spotlight::get_slider_class().' ">';
@@ -78,7 +78,7 @@ Class Quick_Links {
    * slider_items function.
    *
    * @access public
-   * @return void
+   * @return string
    */
   static function slider_items() {
 
@@ -126,7 +126,7 @@ Class Quick_Links {
    * get_slider_image_src function.
    *
    * @access public
-   * @return void
+   * @return string
    */
   static function get_slider_image_src( $img ) {
 

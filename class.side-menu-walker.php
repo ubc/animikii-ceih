@@ -96,12 +96,16 @@ class Side_Menu_Walker extends Walker_Nav_Menu {
    * @param int $depth (default: 0)
    * @param mixed $args
    * @param mixed &$output
-   * @return void
+   * @return
    */
-  function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+  function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
 
     if ( !$element )
       return;
+
+	if ( ! $depth ) {
+		$depth = 0;
+	}
 
     $id_field = $this->db_fields['id'];
 
