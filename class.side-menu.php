@@ -13,7 +13,7 @@ Class Side_Menu {
   static function init() {
     require_once( plugin_dir_path( __FILE__ ) . 'class.side-menu-walker.php');
 
-    self::$hybrid_prefix = hybrid_get_prefix();
+    self::$hybrid_prefix = function_exists( 'hybrid_get_prefix' ) ? hybrid_get_prefix() : '';
 
     // if( class_exists( 'UBC_Collab_Theme_Options' ) )
     // 	if( UBC_Collab_Theme_Options::get( 'navigation-header-display' ) )
