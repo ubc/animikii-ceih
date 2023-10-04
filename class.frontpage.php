@@ -25,7 +25,7 @@ Class Animikii_Frontpage {
    * @access public
    * @return
    */
-  static function frontpage_start( $template ) {
+  public static function frontpage_start( $template ) {
 
     if( is_front_page() ) :
       $layout = UBC_Collab_Theme_Options::get('frontpage-layout');
@@ -40,7 +40,7 @@ Class Animikii_Frontpage {
     return false;
   }
 
-  static function get_sections() {
+  public static function get_sections() {
     $items = wp_get_nav_menu_items( 'TOP-NAV' );
 
     if(is_array($items)) {
@@ -75,7 +75,7 @@ Class Animikii_Frontpage {
    * @param bool $echo (default: true)
    * @return mixed
    */
-  static function show( $echo = true ) {
+  public static function show( $echo = true ) {
     $html = self::shell();
 
     if( $echo )
@@ -90,7 +90,7 @@ Class Animikii_Frontpage {
    * @access public
    * @return string
    */
-  static function shell() {
+  public static function shell() {
     $html = '<div class="section-container">';
     $html .= self::section_items();
     $html .= '</div>';
@@ -103,7 +103,7 @@ Class Animikii_Frontpage {
    * @access public
    * @return string
    */
-  static function section_items() {
+  public static function section_items() {
     $html = '';
 
     if ( apply_filters( 'has_nav_menu', true, 'primary' ) ) {
@@ -124,7 +124,7 @@ Class Animikii_Frontpage {
    * @param int $prev_lvl (default: -1)
    * @return string
    */
-  static function render_sections($array, $current_parent_id, $current_lvl = 0, $prev_lvl = -1) {
+  public static function render_sections($array, $current_parent_id, $current_lvl = 0, $prev_lvl = -1) {
     global $post;
     $html = '';
 
@@ -224,7 +224,7 @@ Class Animikii_Frontpage {
    * @param int $zc (default: 1)
    * @return string
    */
-  static function wave_resize_akii_frontpage_image($url, $width, $height=null, $zc=1) {
+  public static function wave_resize_akii_frontpage_image($url, $width, $height=null, $zc=1) {
     $args = array(
       'width' => $width,
       'height' => $height,
@@ -242,7 +242,7 @@ Class Animikii_Frontpage {
    * @param array $size (default: null)
    * @return string
    */
-  static function get_frontpage_image( $id = null, $dimensions = null) {
+  public static function get_frontpage_image( $id = null, $dimensions = null) {
     $size = 'large';
     if( !$dimensions ) {
       $dimensions = array(
