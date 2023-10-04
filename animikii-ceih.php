@@ -16,7 +16,7 @@ Class Animikii_CEIH {
   public static function init() {
 
     // wp-hybrid-clf
-    self::$prefix = hybrid_get_prefix();
+    self::$prefix = function_exists( 'hybrid_get_prefix' ) ? hybrid_get_prefix() : '';
 
     require_once( plugin_dir_path( __FILE__ ) . 'lib/meta-box/meta-box.php');
 
@@ -33,7 +33,7 @@ Class Animikii_CEIH {
     add_action( self::$prefix."_before_container", array(__CLASS__, 'feature_image') , 1 );
   }
 
-  function feature_image() { ?>
+  public static function feature_image() { ?>
 
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -58,7 +58,7 @@ Class Animikii_CEIH {
    * @param mixed $post_id
    * @return string
    */
-  function get_the_feature_image_url($post_id = null) {
+  public static function get_the_feature_image_url($post_id = null) {
     $args = array(
       'width' => 1200,
       'height' => 450,
@@ -78,7 +78,7 @@ Class Animikii_CEIH {
    * @access public
    * @return void
    */
-  function display_the_feature_image() {
+  public static function display_the_feature_image() {
     $args = array(
       'width' => 1200,
       'height' => 450,
@@ -95,7 +95,7 @@ Class Animikii_CEIH {
     echo '</div>';
   }
 
-  function new_default_template( $template ) {
+  public static function new_default_template( $template ) {
 
     $file = dirname(__FILE__) . '/default-template.php';
 
@@ -113,7 +113,7 @@ Class Animikii_CEIH {
    * @access public
    * @return void
    */
-  function register_side_menu_sidebars() {
+  public static function register_side_menu_sidebars() {
 
     register_sidebar( array(
       'name'          => 'Side Menu Top',
@@ -145,7 +145,7 @@ Class Animikii_CEIH {
    * @access public
    * @return mixed
    */
-  function akii_frontpage_meta_box( $meta_boxes ) {
+  public static function akii_frontpage_meta_box( $meta_boxes ) {
     $prefix = 'akii_';
 
     $meta_boxes[] = array(

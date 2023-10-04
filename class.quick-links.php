@@ -12,7 +12,7 @@ Class Quick_Links {
    * @access public
    * @return void
    */
-  static function init() {
+  public static function init() {
     // register the spotlight functions
     if( !is_admin() ):
       wp_register_style( 'animikii-quik-links', plugins_url( '/css/quick-links.css', __FILE__ ) );
@@ -28,7 +28,7 @@ Class Quick_Links {
 
   }
 
-  function display_js() {
+  public static function display_js() {
 		$html = '<script type="text/javascript">';
 		$html .= '(function() {';
     $html .= 'jQuery(".js-quick-links").removeClass("is-initial")';
@@ -45,7 +45,7 @@ Class Quick_Links {
    * @param bool $echo (default: true)
    * @return mixed
    */
-  static function show( $atts = array(), $echo = true ) {
+  public static function show( $atts = array(), $echo = true ) {
     self::$add_script = true;
     self::$slider_attr = shortcode_atts( UBC_Collab_Spotlight::defaults(), $atts );
 
@@ -65,7 +65,7 @@ Class Quick_Links {
    * @access public
    * @return string
    */
-  static function shell() {
+  public static function shell() {
     $html = '<section class="c-quick-links s-dark-background js-quick-links is-initial '.UBC_Collab_Spotlight::get_slider_class().' ">';
     $html .= '<nav class="c-quick-links__inner">';
     $html .= self::slider_items();
@@ -80,7 +80,7 @@ Class Quick_Links {
    * @access public
    * @return string
    */
-  static function slider_items() {
+  public static function slider_items() {
 
     $sections = Animikii_Frontpage::get_sections();
 
@@ -117,7 +117,7 @@ Class Quick_Links {
     return $html;
   }
 
-  static function get_quicklink_image_src($id, $size) {
+  public static function get_quicklink_image_src($id, $size) {
     return self::get_slider_image_src( Animikii_Frontpage::get_frontpage_image( $id, $size ) );
   }
 
@@ -128,7 +128,7 @@ Class Quick_Links {
    * @access public
    * @return string
    */
-  static function get_slider_image_src( $img ) {
+  public static function get_slider_image_src( $img ) {
 
     return (preg_match('~\bsrc="([^"]++)"~', $img, $matches)) ? $matches[1] : '';
 
